@@ -1,0 +1,224 @@
+/* ============================================
+   FISIO TUNICH — Animation Utilities
+   ============================================
+   Reusable animation classes triggered by JS
+   via Intersection Observer
+   ============================================ */
+
+/* ── Base: Hidden state for reveal ───────── */
+[data-animate] {
+  opacity: 0;
+  transition: 
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Visible (triggered by JS) */
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1) !important;
+}
+
+/* ── Fade Up ─────────────────────────────── */
+[data-animate="fade-up"] {
+  transform: translateY(40px);
+}
+
+/* ── Fade Down ───────────────────────────── */
+[data-animate="fade-down"] {
+  transform: translateY(-40px);
+}
+
+/* ── Fade Left ───────────────────────────── */
+[data-animate="fade-left"] {
+  transform: translateX(-40px);
+}
+
+/* ── Fade Right ──────────────────────────── */
+[data-animate="fade-right"] {
+  transform: translateX(40px);
+}
+
+/* ── Fade In (no movement) ───────────────── */
+[data-animate="fade-in"] {
+  transform: none;
+}
+
+/* ── Scale Up ────────────────────────────── */
+[data-animate="scale-up"] {
+  transform: scale(0.9);
+}
+
+/* ── Scale Down ──────────────────────────── */
+[data-animate="scale-down"] {
+  transform: scale(1.1);
+}
+
+/* ── Flip In ─────────────────────────────── */
+[data-animate="flip-up"] {
+  transform: perspective(600px) rotateX(15deg) translateY(20px);
+}
+
+/* ── Slide Up + Scale ────────────────────── */
+[data-animate="slide-scale"] {
+  transform: translateY(30px) scale(0.95);
+}
+
+/* ── Delay modifiers ─────────────────────── */
+[data-animate-delay="100"] { transition-delay: 100ms; }
+[data-animate-delay="200"] { transition-delay: 200ms; }
+[data-animate-delay="300"] { transition-delay: 300ms; }
+[data-animate-delay="400"] { transition-delay: 400ms; }
+[data-animate-delay="500"] { transition-delay: 500ms; }
+[data-animate-delay="600"] { transition-delay: 600ms; }
+[data-animate-delay="700"] { transition-delay: 700ms; }
+[data-animate-delay="800"] { transition-delay: 800ms; }
+
+/* ── Duration modifiers ──────────────────── */
+[data-animate-duration="fast"] {
+  transition-duration: 0.4s;
+}
+
+[data-animate-duration="slow"] {
+  transition-duration: 1s;
+}
+
+[data-animate-duration="very-slow"] {
+  transition-duration: 1.4s;
+}
+
+/* ============================================
+   KEYFRAME ANIMATIONS
+   (For continuous/looping animations)
+   ============================================ */
+
+/* ── Float (gentle bobbing) ──────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.anim-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ── Pulse Glow ──────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 hsla(168, 60%, 38%, 0.4); }
+  50% { box-shadow: 0 0 20px 10px hsla(168, 60%, 38%, 0.1); }
+}
+
+.anim-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+/* ── Rotate ──────────────────────────────── */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.anim-spin-slow {
+  animation: spin-slow 15s linear infinite;
+}
+
+/* ── Shimmer (loading / decorative) ──────── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.anim-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--clr-neutral-200) 25%,
+    var(--clr-neutral-100) 50%,
+    var(--clr-neutral-200) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* ── Slide in from bottom (page load) ────── */
+@keyframes slide-in-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim-slide-in-bottom {
+  animation: slide-in-bottom 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Magnetic hover effect on cards ──────── */
+.hover-lift {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ── Underline reveal on hover ───────────── */
+.hover-underline {
+  position: relative;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--clr-primary-500);
+  transition: width var(--transition-base);
+}
+
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* ── Stagger children (used with JS) ─────── */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stagger-children.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+.stagger-children.is-visible > *:nth-child(2) { transition-delay: 100ms; }
+.stagger-children.is-visible > *:nth-child(3) { transition-delay: 200ms; }
+.stagger-children.is-visible > *:nth-child(4) { transition-delay: 300ms; }
+.stagger-children.is-visible > *:nth-child(5) { transition-delay: 400ms; }
+.stagger-children.is-visible > *:nth-child(6) { transition-delay: 500ms; }
+
+.stagger-children.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Reduce motion preference ────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

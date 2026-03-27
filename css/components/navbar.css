@@ -1,0 +1,329 @@
+/* ============================================
+   FISIO TUNICH — Navbar Styles
+   ============================================
+   Glassmorphism navbar with scroll effects,
+   animated hamburger menu, and active states
+   ============================================ */
+
+/* ── Navbar Container ────────────────────── */
+.navbar-ft {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--navbar-height);
+  z-index: 1000;
+  transition: 
+    height var(--transition-slow),
+    background var(--transition-slow),
+    box-shadow var(--transition-slow),
+    backdrop-filter var(--transition-slow);
+  display: flex;
+  align-items: center;
+}
+
+/* ── Initial State: Transparent ──────────── */
+.navbar-ft {
+  background: transparent;
+}
+
+/* ── Scrolled State: Glassmorphism ────────── */
+.navbar-ft.is-scrolled {
+  height: var(--navbar-height-scrolled);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ── Inner Container ─────────────────────── */
+.navbar-ft__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* ── Brand / Logo ────────────────────────── */
+.navbar-ft__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  text-decoration: none;
+  z-index: 1010;
+}
+
+.navbar-ft__logo {
+  height: 42px;
+  width: auto;
+  transition: height var(--transition-slow);
+}
+
+.navbar-ft.is-scrolled .navbar-ft__logo {
+  height: 34px;
+}
+
+.navbar-ft__brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.navbar-ft__brand-name {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  color: white;
+  transition: color var(--transition-slow);
+}
+
+.navbar-ft.is-scrolled .navbar-ft__brand-name {
+  color: var(--clr-primary-700);
+}
+
+.navbar-ft__brand-tagline {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-light);
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.05em;
+  transition: color var(--transition-slow);
+}
+
+.navbar-ft.is-scrolled .navbar-ft__brand-tagline {
+  color: var(--clr-text-secondary);
+}
+
+/* ── Navigation Links ────────────────────── */
+.navbar-ft__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.navbar-ft__link {
+  position: relative;
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: 
+    color var(--transition-fast),
+    background var(--transition-fast);
+  letter-spacing: 0.01em;
+}
+
+.navbar-ft.is-scrolled .navbar-ft__link {
+  color: var(--clr-text-primary);
+}
+
+.navbar-ft__link:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.navbar-ft.is-scrolled .navbar-ft__link:hover {
+  color: var(--clr-primary-500);
+  background: var(--clr-primary-50);
+}
+
+/* Active state */
+.navbar-ft__link.is-active {
+  color: white;
+  font-weight: var(--fw-semibold);
+}
+
+.navbar-ft__link.is-active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: var(--clr-accent-400);
+  border-radius: var(--radius-full);
+}
+
+.navbar-ft.is-scrolled .navbar-ft__link.is-active {
+  color: var(--clr-primary-600);
+}
+
+.navbar-ft.is-scrolled .navbar-ft__link.is-active::after {
+  background: var(--clr-primary-500);
+}
+
+/* ── CTA Button in Navbar ────────────────── */
+.navbar-ft__cta {
+  margin-left: var(--space-sm);
+  padding: 0.6em 1.5em;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-neutral-900);
+  background: linear-gradient(135deg, var(--clr-accent-400), var(--clr-accent-500));
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: 
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+  box-shadow: 0 2px 10px hsla(38, 92%, 50%, 0.3);
+}
+
+.navbar-ft__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px hsla(38, 92%, 50%, 0.4);
+  color: var(--clr-neutral-900);
+}
+
+/* ── Hamburger Button ────────────────────── */
+.navbar-ft__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1010;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.navbar-ft__hamburger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  border-radius: var(--radius-full);
+  transition: 
+    transform var(--transition-base),
+    opacity var(--transition-fast),
+    background var(--transition-slow);
+}
+
+.navbar-ft.is-scrolled .navbar-ft__hamburger-line {
+  background: var(--clr-neutral-800);
+}
+
+/* Hamburger → X animation */
+.navbar-ft__hamburger.is-active .navbar-ft__hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.navbar-ft__hamburger.is-active .navbar-ft__hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.navbar-ft__hamburger.is-active .navbar-ft__hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ── Mobile Styles ───────────────────────── */
+@media (max-width: 991px) {
+  .navbar-ft__hamburger {
+    display: flex;
+  }
+
+  .navbar-ft__nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(85vw, 380px);
+    height: 100vh;
+    height: 100dvh;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+    padding: calc(var(--navbar-height) + var(--space-xl)) var(--space-2xl) var(--space-2xl);
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
+    transition: right var(--transition-slow) cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+  }
+
+  .navbar-ft__nav.is-open {
+    right: 0;
+  }
+
+  .navbar-ft__link {
+    color: var(--clr-text-primary);
+    font-size: var(--fs-md);
+    padding: var(--space-sm) var(--space-md);
+    width: 100%;
+    border-radius: var(--radius-md);
+  }
+
+  .navbar-ft__link:hover {
+    background: var(--clr-primary-50);
+    color: var(--clr-primary-600);
+  }
+
+  .navbar-ft__link.is-active {
+    color: var(--clr-primary-600);
+    background: var(--clr-primary-50);
+  }
+
+  .navbar-ft__link.is-active::after {
+    display: none;
+  }
+
+  .navbar-ft__cta {
+    margin-left: 0;
+    margin-top: var(--space-md);
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding: 0.9em 1.5em;
+  }
+
+  /* Overlay */
+  .navbar-ft__overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: 
+      opacity var(--transition-slow),
+      visibility var(--transition-slow);
+    z-index: 999;
+  }
+
+  .navbar-ft__overlay.is-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-ft__overlay {
+    display: none !important;
+  }
+}
+
+/* ── Entrance Animation ──────────────────── */
+@keyframes navbar-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar-ft {
+  animation: navbar-slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

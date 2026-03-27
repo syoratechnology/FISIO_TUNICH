@@ -1,0 +1,408 @@
+/* ============================================
+   FISIO TUNICH — Global Styles
+   ============================================
+   Design System: Variables, Reset, Typography, 
+   Global Utilities & Base Styles
+   ============================================ */
+
+/* ── Google Fonts ────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+
+/* ============================================
+   CSS CUSTOM PROPERTIES (Design Tokens)
+   ============================================ */
+:root {
+  /* ── Color Palette ─────────────────────── */
+  /* Primary — Teal (salud, bienestar, naturaleza) */
+  --clr-primary-50:  hsl(168, 55%, 95%);
+  --clr-primary-100: hsl(168, 55%, 88%);
+  --clr-primary-200: hsl(168, 50%, 75%);
+  --clr-primary-300: hsl(168, 48%, 60%);
+  --clr-primary-400: hsl(168, 50%, 48%);
+  --clr-primary-500: hsl(168, 60%, 38%);   /* ★ Main */
+  --clr-primary-600: hsl(168, 65%, 30%);
+  --clr-primary-700: hsl(168, 70%, 22%);
+  --clr-primary-800: hsl(168, 72%, 16%);
+  --clr-primary-900: hsl(168, 75%, 10%);
+
+  /* Accent — Warm Gold */
+  --clr-accent-400: hsl(38, 92%, 55%);
+  --clr-accent-500: hsl(38, 92%, 50%);
+  --clr-accent-600: hsl(38, 90%, 42%);
+
+  /* Neutrals — Warm Stone */
+  --clr-neutral-50:  hsl(40, 20%, 98%);
+  --clr-neutral-100: hsl(40, 15%, 95%);
+  --clr-neutral-200: hsl(36, 12%, 88%);
+  --clr-neutral-300: hsl(33, 10%, 75%);
+  --clr-neutral-400: hsl(30, 8%, 60%);
+  --clr-neutral-500: hsl(28, 8%, 48%);
+  --clr-neutral-600: hsl(25, 10%, 38%);
+  --clr-neutral-700: hsl(24, 12%, 28%);
+  --clr-neutral-800: hsl(22, 14%, 18%);
+  --clr-neutral-900: hsl(20, 18%, 10%);
+
+  /* Semantic */
+  --clr-success: hsl(142, 60%, 42%);
+  --clr-warning: hsl(38, 92%, 50%);
+  --clr-error:   hsl(0, 70%, 55%);
+  --clr-info:    hsl(205, 70%, 50%);
+
+  /* Backgrounds */
+  --clr-bg-primary:   var(--clr-neutral-50);
+  --clr-bg-secondary: hsl(168, 30%, 96%);
+  --clr-bg-dark:      hsl(200, 25%, 10%);
+
+  /* Text */
+  --clr-text-primary:   var(--clr-neutral-800);
+  --clr-text-secondary: var(--clr-neutral-500);
+  --clr-text-heading:   var(--clr-neutral-900);
+  --clr-text-on-dark:   hsl(0, 0%, 95%);
+  --clr-text-on-primary: hsl(0, 0%, 100%);
+
+  /* ── Typography ────────────────────────── */
+  --ff-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ff-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+
+  --fs-xs:   clamp(0.7rem, 0.65rem + 0.25vw, 0.8rem);
+  --fs-sm:   clamp(0.8rem, 0.75rem + 0.3vw, 0.9rem);
+  --fs-base: clamp(0.95rem, 0.9rem + 0.3vw, 1.05rem);
+  --fs-md:   clamp(1.1rem, 1rem + 0.4vw, 1.25rem);
+  --fs-lg:   clamp(1.3rem, 1.1rem + 0.8vw, 1.6rem);
+  --fs-xl:   clamp(1.6rem, 1.3rem + 1.2vw, 2.2rem);
+  --fs-2xl:  clamp(2rem, 1.5rem + 2vw, 3rem);
+  --fs-3xl:  clamp(2.5rem, 1.8rem + 3vw, 4rem);
+
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  --lh-tight:  1.2;
+  --lh-normal: 1.6;
+  --lh-loose:  1.8;
+
+  /* ── Spacing ───────────────────────────── */
+  --space-2xs: 0.25rem;
+  --space-xs:  0.5rem;
+  --space-sm:  0.75rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+
+  /* ── Borders & Radius ──────────────────── */
+  --radius-sm:   0.375rem;
+  --radius-md:   0.625rem;
+  --radius-lg:   1rem;
+  --radius-xl:   1.5rem;
+  --radius-full: 50%;
+
+  --border-light: 1px solid var(--clr-neutral-200);
+
+  /* ── Shadows ───────────────────────────── */
+  --shadow-sm:  0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md:  0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg:  0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.04);
+  --shadow-xl:  0 20px 50px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.06);
+  --shadow-glow: 0 0 30px hsla(168, 60%, 38%, 0.2);
+
+  /* ── Transitions ───────────────────────── */
+  --transition-fast:   150ms ease;
+  --transition-base:   250ms ease;
+  --transition-slow:   400ms ease;
+  --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Layout ────────────────────────────── */
+  --navbar-height: 80px;
+  --navbar-height-scrolled: 64px;
+  --container-max: 1200px;
+  --container-padding: var(--space-lg);
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--navbar-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+  color: var(--clr-text-primary);
+  background-color: var(--clr-bg-primary);
+  overflow-x: hidden;
+}
+
+/* ── Headings ────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ff-heading);
+  color: var(--clr-text-heading);
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-bold);
+}
+
+h1 { font-size: var(--fs-3xl); }
+h2 { font-size: var(--fs-2xl); }
+h3 { font-size: var(--fs-xl); }
+h4 { font-size: var(--fs-lg); }
+h5 { font-size: var(--fs-md); }
+h6 { font-size: var(--fs-base); }
+
+/* ── Links ───────────────────────────────── */
+a {
+  color: var(--clr-primary-500);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--clr-primary-600);
+}
+
+/* ── Images ──────────────────────────────── */
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Lists ───────────────────────────────── */
+ul, ol {
+  list-style: none;
+}
+
+/* ── Buttons ─────────────────────────────── */
+button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* ── Inputs ──────────────────────────────── */
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+}
+
+/* ============================================
+   GLOBAL UTILITIES
+   ============================================ */
+
+/* ── Container ───────────────────────────── */
+.container-custom {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* ── Section ─────────────────────────────── */
+.section {
+  padding-block: var(--space-4xl);
+}
+
+.section--sm {
+  padding-block: var(--space-2xl);
+}
+
+.section--lg {
+  padding-block: var(--space-5xl);
+}
+
+/* ── Section Headings ────────────────────── */
+.section-header {
+  text-align: center;
+  max-width: 650px;
+  margin-inline: auto;
+  margin-bottom: var(--space-3xl);
+}
+
+.section-header__tag {
+  display: inline-block;
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-primary-500);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-sm);
+}
+
+.section-header__title {
+  margin-bottom: var(--space-md);
+}
+
+.section-header__description {
+  color: var(--clr-text-secondary);
+  font-size: var(--fs-md);
+  line-height: var(--lh-loose);
+}
+
+/* ── Buttons ─────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 0.8em 1.8em;
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.btn:hover::after {
+  opacity: 1;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--clr-primary-500), var(--clr-primary-600));
+  color: var(--clr-text-on-primary);
+  box-shadow: 0 4px 15px hsla(168, 60%, 38%, 0.3);
+}
+
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px hsla(168, 60%, 38%, 0.4);
+  color: var(--clr-text-on-primary);
+}
+
+.btn--outline {
+  border: 2px solid var(--clr-primary-500);
+  color: var(--clr-primary-500);
+  background: transparent;
+}
+
+.btn--outline:hover {
+  background: var(--clr-primary-500);
+  color: var(--clr-text-on-primary);
+  transform: translateY(-2px);
+}
+
+.btn--accent {
+  background: linear-gradient(135deg, var(--clr-accent-400), var(--clr-accent-500));
+  color: var(--clr-neutral-900);
+  box-shadow: 0 4px 15px hsla(38, 92%, 50%, 0.3);
+}
+
+.btn--accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px hsla(38, 92%, 50%, 0.4);
+}
+
+.btn--lg {
+  padding: 1em 2.5em;
+  font-size: var(--fs-base);
+}
+
+.btn--sm {
+  padding: 0.5em 1.2em;
+  font-size: var(--fs-xs);
+}
+
+/* ── Decorative Elements ─────────────────── */
+.accent-line {
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--clr-primary-500), var(--clr-accent-400));
+  border-radius: var(--radius-full);
+}
+
+.accent-line--center {
+  margin-inline: auto;
+}
+
+/* ── Text Gradient ───────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, var(--clr-primary-500), var(--clr-primary-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glassmorphism Card ──────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ── Selection ───────────────────────────── */
+::selection {
+  background: var(--clr-primary-200);
+  color: var(--clr-primary-900);
+}
+
+/* ── Scrollbar ───────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--clr-neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--clr-primary-300);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-primary-500);
+}
+
+/* ── Page Content Spacer (for fixed navbar) ── */
+.page-content {
+  padding-top: var(--navbar-height);
+}
+
+/* ── Responsive helpers ──────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --container-padding: var(--space-md);
+  }
+
+  .section {
+    padding-block: var(--space-2xl);
+  }
+
+  .section--lg {
+    padding-block: var(--space-3xl);
+  }
+}

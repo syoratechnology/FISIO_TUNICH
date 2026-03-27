@@ -1,0 +1,151 @@
+/* ============================================
+   FISIO TUNICH — Home Page Styles
+   ============================================ */
+
+/* ── Hero Section ────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: 
+    linear-gradient(
+      135deg,
+      hsla(168, 65%, 15%, 0.92) 0%,
+      hsla(168, 55%, 22%, 0.88) 30%,
+      hsla(200, 40%, 18%, 0.85) 70%,
+      hsla(220, 35%, 12%, 0.9) 100%
+    );
+  color: white;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  padding-block: var(--space-5xl);
+}
+
+.hero__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.4em 1.2em;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.05em;
+  color: var(--clr-accent-400);
+  margin-bottom: var(--space-lg);
+  backdrop-filter: blur(8px);
+}
+
+.hero__title {
+  font-size: var(--fs-3xl);
+  color: white;
+  margin-bottom: var(--space-lg);
+  line-height: 1.15;
+}
+
+.hero__title span {
+  color: var(--clr-accent-400);
+}
+
+.hero__description {
+  font-size: var(--fs-md);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: var(--lh-loose);
+  margin-bottom: var(--space-2xl);
+  max-width: 540px;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.hero__stat {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-left: var(--space-lg);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--fs-sm);
+}
+
+.hero__stat-number {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-bold);
+  color: var(--clr-accent-400);
+}
+
+/* Decorative shapes */
+.hero__shape {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero__shape--1 {
+  bottom: -80px;
+  right: -40px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, hsla(168, 60%, 40%, 0.15), transparent);
+}
+
+.hero__shape--2 {
+  top: 10%;
+  right: 15%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, hsla(38, 92%, 50%, 0.08), transparent);
+}
+
+.hero__shape--3 {
+  top: 40%;
+  right: 5%;
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(255, 255, 255, 0.06);
+  animation: float 4s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 90vh;
+  }
+
+  .hero__content {
+    padding-block: var(--space-4xl) var(--space-3xl);
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero__stat {
+    margin-left: 0;
+    margin-top: var(--space-sm);
+  }
+}
