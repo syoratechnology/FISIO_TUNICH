@@ -1,10 +1,3 @@
-/* ============================================
-   FISIO TUNICH — Global Styles
-   ============================================
-   Design System: Variables, Reset, Typography, 
-   Global Utilities & Base Styles
-   ============================================ */
-
 /* ── Google Fonts ────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
 
@@ -49,14 +42,14 @@
   --clr-info:    hsl(205, 70%, 50%);
 
   /* Backgrounds */
-  --clr-bg-primary:   var(--clr-neutral-50);
-  --clr-bg-secondary: hsl(168, 30%, 96%);
-  --clr-bg-dark:      hsl(200, 25%, 10%);
+  --clr-bg-primary:   hsl(168, 60%, 15%);
+  --clr-bg-secondary: hsl(168, 55%, 20%);
+  --clr-bg-dark:      hsl(200, 40%, 10%);
 
   /* Text */
-  --clr-text-primary:   var(--clr-neutral-800);
-  --clr-text-secondary: var(--clr-neutral-500);
-  --clr-text-heading:   var(--clr-neutral-900);
+  --clr-text-primary:   hsl(0, 0%, 90%);
+  --clr-text-secondary: hsl(0, 0%, 75%);
+  --clr-text-heading:   hsl(0, 0%, 100%);
   --clr-text-on-dark:   hsl(0, 0%, 95%);
   --clr-text-on-primary: hsl(0, 0%, 100%);
 
@@ -148,7 +141,8 @@ body {
   font-weight: var(--fw-regular);
   line-height: var(--lh-normal);
   color: var(--clr-text-primary);
-  background-color: var(--clr-bg-primary);
+  background: linear-gradient(135deg, hsla(168, 65%, 15%, 1) 0%, hsla(168, 55%, 22%, 1) 30%, hsla(200, 40%, 18%, 1) 70%, hsla(220, 35%, 12%, 1) 100%);
+  background-attachment: scroll;
   overflow-x: hidden;
 }
 

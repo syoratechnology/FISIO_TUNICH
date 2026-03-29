@@ -51,6 +51,13 @@ function resolveLinks(container) {
     link.setAttribute('href', basePath + relPath);
     link.removeAttribute('data-href');
   });
+
+  const imgs = container.querySelectorAll('[data-img-src]');
+  imgs.forEach(img => {
+    const relPath = img.getAttribute('data-img-src');
+    img.setAttribute('src', basePath + relPath);
+    img.removeAttribute('data-img-src');
+  });
 }
 
 /**
@@ -93,7 +100,7 @@ function getTemplatePath() {
  */
 function setActiveNavLink() {
   const currentPath = window.location.pathname;
-  const navLinks = document.querySelectorAll('.navbar-ft__link, .navbar-ft__cta');
+  const navLinks = document.querySelectorAll('.navbar-ft__link, .navbar-ft__cta, .mobile-bottom-nav__item');
 
   navLinks.forEach(link => {
     link.classList.remove('is-active');

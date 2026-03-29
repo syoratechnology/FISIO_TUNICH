@@ -65,16 +65,15 @@
   text-decoration: none;
 }
 
-.footer-ft__brand-logo {
-  height: 40px;
+.footer-ft__brand-img {
+  height: 75px;
   width: auto;
+  object-fit: contain;
+  transition: transform var(--transition-fast);
 }
 
-.footer-ft__brand-name {
-  font-family: var(--ff-heading);
-  font-size: var(--fs-lg);
-  font-weight: var(--fw-bold);
-  color: white;
+.footer-ft__brand:hover .footer-ft__brand-img {
+  transform: scale(1.02);
 }
 
 .footer-ft__description {
