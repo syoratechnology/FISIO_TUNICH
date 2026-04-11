@@ -128,6 +128,171 @@
       </div>
     </section>
 
+    <!-- ── Nuestros Servicios Section ─────────────────── -->
+    <section class="section" id="servicios">
+      <div class="container-custom">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-header__tag">Nuestros Servicios</span>
+          <h2 class="section-header__title">¿Qué tipo de <span class="text-gradient">servicio</span> buscas?</h2>
+          <p class="section-header__description">
+            Selecciona una categoría para conocer todos los tratamientos disponibles.
+          </p>
+          <div class="accent-line accent-line--center" style="margin-top: var(--space-md);"></div>
+        </div>
+
+        <div class="row g-4 justify-content-center mt-2">
+
+          <!-- Card: Masajes -->
+          <div class="col-md-5" data-animate="fade-up" data-animate-delay="100">
+            <button class="svc-card" id="btn-masajes" data-bs-toggle="modal" data-bs-target="#modalMasajes" aria-haspopup="dialog">
+              <div class="svc-card__icon" aria-hidden="true">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 11V6a2 2 0 0 0-2-2 2 2 0 0 0-2 2"/>
+                  <path d="M14 10.5a2 2 0 0 0-2-2 2 2 0 0 0-2 2V12"/>
+                  <path d="M10 10.5a2 2 0 0 0-2-2 2 2 0 0 0-2 2V14"/>
+                  <path d="M6 14v1a6 6 0 0 0 6 6h2a8 8 0 0 0 8-8V9a2 2 0 0 0-2-2 2 2 0 0 0-2 2"/>
+                </svg>
+              </div>
+              <h3 class="svc-card__title">Masajes</h3>
+              <p class="svc-card__desc">Relajantes, descontracturantes y de cuerpo completo</p>
+              <span class="svc-card__cta">Ver servicios <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </button>
+          </div>
+
+          <!-- Card: Terapia -->
+          <div class="col-md-5" data-animate="fade-up" data-animate-delay="200">
+            <button class="svc-card" id="btn-terapia" data-bs-toggle="modal" data-bs-target="#modalTerapia" aria-haspopup="dialog">
+              <div class="svc-card__icon" aria-hidden="true">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"/>
+                  <path d="M8 15v1a6 6 0 0 0 6 6h2"/>
+                  <circle cx="20" cy="21" r="1"/>
+                </svg>
+              </div>
+              <h3 class="svc-card__title">Terapia</h3>
+              <p class="svc-card__desc">Física, rehabilitación y recuperación especializada</p>
+              <span class="svc-card__cta">Ver servicios <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ Modal: Masajes ══════════════════════════════ -->
+    <div class="modal fade" id="modalMasajes" tabindex="-1" aria-labelledby="modalMasajesLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content svc-modal">
+          <div class="modal-header svc-modal__header">
+            <div>
+              <span class="section-header__tag" style="margin-bottom: 4px; display:block;">Nuestros Servicios</span>
+              <h2 class="modal-title svc-modal__title" id="modalMasajesLabel">Masajes</h2>
+            </div>
+            <button type="button" class="svc-modal__close" data-bs-dismiss="modal" aria-label="Cerrar">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+          <div class="modal-body svc-modal__body">
+            <div class="row g-3">
+              <!-- Masaje Relajante -->
+              <div class="col-12">
+                <div class="svc-modal__item">
+                  <div class="svc-modal__item-dot"></div>
+                  <div>
+                    <h4 class="svc-modal__item-title">Masaje Relajante</h4>
+                    <p class="svc-modal__item-desc">Ideal para liberar el estrés acumulado y lograr una sensación profunda de tranquilidad.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Masaje Descontracturante -->
+              <div class="col-12">
+                <div class="svc-modal__item">
+                  <div class="svc-modal__item-dot"></div>
+                  <div>
+                    <h4 class="svc-modal__item-title">Masaje Descontracturante</h4>
+                    <p class="svc-modal__item-desc">Presión profunda para disolver nudos musculares y disminuir el dolor localizado por tensión.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Masaje Cuerpo Completo -->
+              <div class="col-12">
+                <div class="svc-modal__item">
+                  <div class="svc-modal__item-dot"></div>
+                  <div>
+                    <h4 class="svc-modal__item-title">Masaje Cuerpo Completo</h4>
+                    <p class="svc-modal__item-desc">Una sesión integral para tratar cada área del cuerpo y promover un bienestar absoluto.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer svc-modal__footer">
+            <a href="https://wa.me/529992162503?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20un%20masaje." class="btn btn--accent" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              Agendar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ Modal: Terapia ══════════════════════════════ -->
+    <div class="modal fade" id="modalTerapia" tabindex="-1" aria-labelledby="modalTerapiaLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content svc-modal">
+          <div class="modal-header svc-modal__header">
+            <div>
+              <span class="section-header__tag" style="margin-bottom: 4px; display:block;">Nuestros Servicios</span>
+              <h2 class="modal-title svc-modal__title" id="modalTerapiaLabel">Terapia</h2>
+            </div>
+            <button type="button" class="svc-modal__close" data-bs-dismiss="modal" aria-label="Cerrar">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+          <div class="modal-body svc-modal__body">
+            <div class="row g-3">
+              <!-- Terapia Física -->
+              <div class="col-12">
+                <div class="svc-modal__item">
+                  <div class="svc-modal__item-dot"></div>
+                  <div>
+                    <h4 class="svc-modal__item-title">Terapia Física</h4>
+                    <p class="svc-modal__item-desc">Para deportistas, dolor del nervio ciático y problemas de columna vertebral.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Dolor de Espalda -->
+              <div class="col-12">
+                <div class="svc-modal__item">
+                  <div class="svc-modal__item-dot"></div>
+                  <div>
+                    <h4 class="svc-modal__item-title">Dolor de Espalda</h4>
+                    <p class="svc-modal__item-desc">Tratamiento especializado para el alivio y mantenimiento de los dolores lumbares y cervicales.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Recuperación en Prótesis -->
+              <div class="col-12">
+                <div class="svc-modal__item">
+                  <div class="svc-modal__item-dot"></div>
+                  <div>
+                    <h4 class="svc-modal__item-title">Recuperación en Prótesis</h4>
+                    <p class="svc-modal__item-desc">Rehabilitación post-operatoria, como en la prótesis de rodilla, para recuperar movilidad.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer svc-modal__footer">
+            <a href="https://wa.me/529992162503?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20sesi%C3%B3n%20de%20terapia." class="btn btn--accent" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+              Agendar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <!-- ========== FOOTER ========== -->
